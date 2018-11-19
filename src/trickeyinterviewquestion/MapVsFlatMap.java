@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class MapVsFlatMap {
@@ -26,21 +27,24 @@ public class MapVsFlatMap {
 	 * @param args
 	 */
 
-	
-
 	public static void main(String[] args) {
-		List listOfIntegers = Stream.of("1", "2", "3", "4").map(Integer::valueOf).collect(Collectors.toList());
+		List<Integer> listOfIntegers = Stream.of("1", "2", "3", "4").map(a -> Integer.valueOf(a))
+				.collect(Collectors.toList());
 
-		List<Integer> evens = Arrays.asList(2, 4, 6,8);
+		List<Integer> evens = Arrays.asList(2, 4, 6, 8);
 		List<Integer> odds = Arrays.asList(3, 5, 7);
 		List<Integer> primes = Arrays.asList(2, 3, 5, 7, 11);
+		
 
+		IntStream  dddd=IntStream.range(1, 5).map(i -> i * i);  
+		Stream<Integer> stream = IntStream.range(1, 5).boxed();  
 		List<Integer> numbers = Stream.of(evens, odds, primes).flatMap(list -> list.stream())
 				.collect(Collectors.toList());
 
 		System.out.println("flattend list: " + numbers);
 
-		String[][] data = new String[][] { { "a", "b" }, { "c", "d" }, { "e", "f" } };
+		String[][] data = new String[][] { { "a", "b" }, { "c", "d" }, { "e", "f" }, { "sd" },
+				{ "sdsds", "wewe", "we" } };
 		// Stream<String[]>
 		Stream<String[]> temp = Arrays.stream(data);
 		// Stream<String>, GOOD!
@@ -76,10 +80,14 @@ public class MapVsFlatMap {
 class Student {
 
 	private String name;
+
 	public String getName() {
 		return name;
 	}
-	public Student(){}
+
+	public Student() {
+	}
+
 	public void setName(String name) {
 		this.name = name;
 	}

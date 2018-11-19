@@ -35,10 +35,10 @@ public class CharacterOccuranceCount {
 		
 		inputString.chars().mapToObj(c ->(char) c).collect(Collectors.groupingBy(Function.identity() ,Collectors.counting()));
 		///inputString.chars().boxed().collect(Collectors.groupingBy(c ->Character.valueOf((char) c.intValue(), LinkedHashMap::new ,Collectors.counting())));
-		
+		Map<Character, Long> tests1 =inputString.chars().mapToObj(c ->(char)c).collect(Collectors.groupingBy(Function.identity() ,Collectors.counting()));
 
 		Map<Character, Long> testss = inputString.chars().mapToObj(c -> (char) c)
-				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+				.collect(Collectors.groupingBy(Function.identity(),LinkedHashMap::new, Collectors.counting()));
 
 		Iterator<Entry<Character, Long>> qqstr = inputString.chars().boxed().collect(Collectors
 				.groupingBy(c -> Character.valueOf((char) c.intValue()), LinkedHashMap::new, Collectors.counting()))
@@ -48,7 +48,7 @@ public class CharacterOccuranceCount {
 			charCount.append(sdsd.getKey()).append(sdsd.getValue().toString());
 		}
 		StringBuilder charCount1 = new StringBuilder();
-		Set<Entry<Character, Long>> str = inputString.chars().boxed().collect(Collectors
+		Set<Map.Entry<Character, Long>> str = inputString.chars().boxed().collect(Collectors
 				.groupingBy(c -> Character.valueOf((char) c.intValue()), LinkedHashMap::new, Collectors.counting()))
 				.entrySet();
 		for (Iterator iterator = str.iterator(); iterator.hasNext();) {

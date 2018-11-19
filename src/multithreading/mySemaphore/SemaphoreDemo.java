@@ -1,7 +1,5 @@
 package multithreading.mySemaphore;
 
-import java.util.concurrent.*;
-
 //A shared resource/class. 
 class Shared {
 	static int count = 0;

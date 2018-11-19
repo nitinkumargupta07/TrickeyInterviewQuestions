@@ -13,7 +13,7 @@ public class TestClass {
          * Use either of these methods for input
 
         //BufferedReader */
-     ///  /// BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+     /// BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
        /// String name = br.readLine();                // Reading input from STDIN
        /// System.out.println("Hi, " + name + ".");    // Writing output to STDOUT
 
